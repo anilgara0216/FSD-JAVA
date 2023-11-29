@@ -1,0 +1,25 @@
+class CustomException extends Exception { //extending exception to the default class nme as CustomException
+    public CustomException(String message) {
+        super(message);
+    }
+}
+public class ExceptionDemo { //public method
+    public static void main(String[] args) {
+        try { //try block
+            methodWithThrows();
+        } catch (CustomException e) { catch block
+            System.out.println("Caught CustomException: " + e.getMessage());
+        }
+
+        try { //try block
+            throw new CustomException("Throwing CustomException");
+        } catch (CustomException e) { catch block
+            System.out.println("Caught CustomException: " + e.getMessage());
+        } finally { //finally block
+            System.out.println("Finally block executed");
+        }
+    }
+    public static void methodWithThrows() throws CustomException {
+        throw new CustomException("Throws CustomException");
+    }
+}
