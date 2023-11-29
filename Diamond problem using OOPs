@@ -1,0 +1,27 @@
+interface First //interface
+{  
+    default void show() 
+    { 
+        System.out.println("Default First"); 
+    } 
+} 
+interface Second //interface
+{  
+    default void show() 
+    { 
+        System.out.println("Default Second"); 
+    } 
+}  
+public class TestClass implements First, Second //implementing 2 interfaces in the public class named as TestClass
+{  
+    public void show() 
+    {  
+        First.super.show(); 
+        Second.super.show(); 
+    } 
+    public static void main(String args[]) 
+    { 
+        TestClass ob = new TestClass(); 
+        ob.show(); 
+    } 
+}
